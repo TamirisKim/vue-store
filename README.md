@@ -1,4 +1,4 @@
-# store-1
+# store
 
 ## Project setup
 ```
