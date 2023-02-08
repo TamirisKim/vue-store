@@ -3,7 +3,7 @@
    <img class="v-catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="img">
     <p>{{ product_data.name }}</p>
     <p>Price ${{ product_data.price }}</p>
-    <button @click="sendDataToParent">Add to cart</button>
+    <button @click="addToCart">Add to cart</button>
   </div>
 </template>
 <script>
@@ -21,8 +21,8 @@ export default {
     return {};
   },
   methods: {
-    sendDataToParent() {
-      this.$emit("sendArticle", this.product_data.article);
+    addToCart(){
+      this.$emit("addToCart", this.product_data);
     }
   }
 };

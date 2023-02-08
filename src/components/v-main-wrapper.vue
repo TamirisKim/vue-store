@@ -1,14 +1,16 @@
 <template>
-  <div class="v-main-wrapper">other {{ title }}
-    <v-cart/>
-    <v-catalog/>
+  <div class="v-main-wrapper">
+    other {{ title }}
+    <v-cart v-if="CART.length" :cart_data="CART" />
+    <v-catalog />
   </div>
 </template>
 
 <script>
-import vCatalog from './v-catalog'
-import vCart from './v-cart'
+import vCatalog from "./v-catalog";
+import vCart from "./v-cart";
 
+import { mapGetters } from "vuex";
 
 export default {
   name: "v-main-wrapper",
@@ -22,7 +24,9 @@ export default {
       title: "Main wrapper",
     };
   }, //свойство перед от детя
-  computed: {}, //вычесл
+  computed: {
+    ...mapGetters(["CART"]),
+  }, //вычесл
   methods: {}, //  отлав дейс польз (клиуки, анимац)
   watch: {}, //следить за измен чегото
   mounted() {
